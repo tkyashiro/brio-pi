@@ -1,16 +1,10 @@
 {% extends "layout.html" %} {% block content %}
 <div class="container">
     <div class="table-responsive">
-        <table class="table table-striped">
-            <thread>
-                <tr>
-                    <th>Date</th>
-                    <th>Picture</th>
-                </tr>
-            </thread>
-            <tbody>
-            </tbody>
-        </table>
+	<div id="video_feed">
+	    <img src="{{ url_for('video_feed') }}", id="camImg" />&nbsp;
+	</div>
     </div>
+</div>
 </div>
 {% endblock %}

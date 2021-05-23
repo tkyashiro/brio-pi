@@ -1,0 +1,9 @@
+{% extends "layout.html" %} {% block content %}
+<div class="container">
+	<div class="table-responsive">
+		<div id="video_feed">
+			<img src="{{ url_for('video_feed') }}", id="camImg" />&nbsp;
+		</div>
+	</div>
+</div>
+{% endblock %}
