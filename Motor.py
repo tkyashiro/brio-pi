@@ -10,8 +10,8 @@ class Motor(object):
     
     current_speed = MOTOR_SPEED_STOP
 
-    pwm0 = None
-    pwm1 = None
+    pwm0 = None ## Go Forward
+    pwm1 = None ## Go backward
 
     def __init__(self):
         self.setup()
@@ -19,14 +19,15 @@ class Motor(object):
     def setup(self):
         pin_pwm0 = 32
         pin_pwm1 = 33
+        freq = 3000
     
         GPIO.setmode(GPIO.BOARD)
     
         GPIO.setup(pin_pwm0, GPIO.OUT)
         GPIO.setup(pin_pwm1, GPIO.OUT)
     
-        self.pwm0 = GPIO.PWM(pin_pwm0, 3000)
-        self.pwm1 = GPIO.PWM(pin_pwm1, 3000)
+        self.pwm0 = GPIO.PWM(pin_pwm0, freq)
+        self.pwm1 = GPIO.PWM(pin_pwm1, freq)
     
         self.pwm0.start(00)
         self.pwm1.start(00)
@@ -35,6 +36,8 @@ class Motor(object):
         self.teardown()
     
     def teardown(self):
+        self.pwm0.stop()
+        self.pwm1.stop()
         GPIO.cleanup()
 
     def currentSpeed(self):

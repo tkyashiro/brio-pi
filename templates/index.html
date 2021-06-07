@@ -1,5 +1,28 @@
 {% extends "layout.html" %} {% block content %}
 <div id="video_feed" class="col-sm-12">
+	<script type="text/javascript">
+funciton changeSpeed(speed)
+{
+	var req = new XMLHttpRequest();
+	var url = "./motor?speed=" + speed;
+
+	req.open('PUT', url);
+}
+	</script>
     <img src="{{ url_for('video_feed') }}", id="camImg"  />&nbsp;
+
+    <form name="speed_controller">
+    	<div>  0 <input type="radio" name="speed_selector" id="s0"  onClick="changeSpeed(0);"/> </div>
+    	<div>  5 <input type="radio" name="speed_selector" id="s5"  onClick="changeSpeed(5);"/> </div>
+    	<div>  4 <input type="radio" name="speed_selector" id="s4"  onClick="changeSpeed(4);"/> </div>
+    	<div>  3 <input type="radio" name="speed_selector" id="s3"  onClick="changeSpeed(3);"/> </div>
+    	<div>  2 <input type="radio" name="speed_selector" id="s2"  onClick="changeSpeed(2);"/> </div>
+    	<div>  1 <input type="radio" name="speed_selector" id="s1"  onClick="changeSpeed(1);"/> </div>
+    	<div> -1 <input type="radio" name="speed_selector" id="sm1" onClick="changeSpeed(-1);"/> </div>
+    	<div> -2 <input type="radio" name="speed_selector" id="sm2" onClick="changeSpeed(-2);"/> </div>
+    	<div> -3 <input type="radio" name="speed_selector" id="sm3" onClick="changeSpeed(-3);"/> </div>
+    	<div> -4 <input type="radio" name="speed_selector" id="sm4" onClick="changeSpeed(-4);"/> </div>
+    	<div> -5 <input type="radio" name="speed_selector" id="sm5" onClick="changeSpeed(-5);"/> </div>
+    </form>
 </div>
 {% endblock %}
